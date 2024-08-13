@@ -1,5 +1,4 @@
 import { VALID } from "../constants";
-import dayjs from 'dayjs';
 
 
 /**
@@ -13,18 +12,6 @@ export function checkNameEmpty(name){
 export function checkNameLength(name){
     return (name.length > 50) ? "Employee name can be no more than 50 characters" : VALID;
 }
-
-/**
- * date validations
- */
-
-/**
- * start hour validations
- */
-
-/**
- * end hour validations
- */
 
 /**
  * time logic validations

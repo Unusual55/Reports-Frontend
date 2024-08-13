@@ -45,17 +45,16 @@ export default function AddForm({ index, tempData, errors, updateTempData, Delet
         <LocalizationProvider dateAdapter={AdapterDayjs} locale="en-gb">
             <>
             {removeFormModalStatus && <ConfirmationModal modalStatus={removeFormModalStatus} handleModalStatus={closeRemoveFormModal} message={'Are you sure you want to delete this form?'} action={removeForm}/>}
-
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Add Report Form
-                </Typography>
-                <IconButton
+            <IconButton
                     aria-label="delete"
                     color="error"
                     onClick={openRemoveFormModal}
                 >
                     <DeleteIcon />
                 </IconButton>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Add Report Form
+                </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     In this form you can add a report.
                 </Typography>

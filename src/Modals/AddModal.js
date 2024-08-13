@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -13,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import { submitButtonStyle, closeButtonStyle } from '../CommonStyles';
 import ConfirmationModal from './ConfirmationModal';
-import { DATE, EMPLOYEENAME, STARTHOUR, ENDHOUR, COMMENTS, VALID, OVERLAP } from '../constants';
+import { DATE, STARTHOUR, ENDHOUR, COMMENTS, VALID, OVERLAP } from '../constants';
 import { checkNameEmpty, checkNameLength, checkTimeLogic } from '../Utils/formValidations';
 
 const style = {
@@ -41,8 +40,8 @@ export default function AddModal({ open, handleClose, submitDataToMenu, setSucce
     const [tempData, setTempData] = React.useState([{
         employeeName: '',
         date: dayjs().startOf('day'),
-        startHour: dayjs().tz('UTC'),
-        endHour: dayjs().tz('UTC'),
+        startHour: dayjs().second(0).millisecond(0).tz('UTC'),
+        endHour: dayjs().second(0).millisecond(0).tz('UTC'),
         comments: ''
     }]);
 
@@ -129,7 +128,6 @@ export default function AddModal({ open, handleClose, submitDataToMenu, setSucce
                         endHour: OVERLAP
                     }
                 }
-                // successfullIndexes.add(i);
             }
             console.log(errors);
         }
@@ -174,6 +172,7 @@ export default function AddModal({ open, handleClose, submitDataToMenu, setSucce
             setSuccessModalStatus(true);
         }
 
+        // If all the forms are valid
         if (newTempData.length === 0) {
             setSuccessModalMessage('All of the reports was added successfully!');
             setSuccessModalStatus(true);
@@ -182,14 +181,15 @@ export default function AddModal({ open, handleClose, submitDataToMenu, setSucce
         closeConfirmationModal();
     }
 
+    // This function will add a new form by adding new objects to the tempdata and errors state
     function addNewForm() {
         setTempData(prev => [
             ...prev,
             {
                 employeeName: '',
                 date: dayjs().startOf('day'),
-                startHour: dayjs.utc().tz('Asia/Jerusalem'),
-                endHour: dayjs.utc().tz('Asia/Jerusalem'),
+                startHour: dayjs.utc().second(0).millisecond(0).tz('UTC'),
+                endHour: dayjs.utc().second(0).millisecond(0).tz('UTC'),
                 comments: ''
             }
         ]);

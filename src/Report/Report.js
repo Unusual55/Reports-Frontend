@@ -29,13 +29,9 @@ export default function Report({ data, updateReport, deleteReport }) {
     const closeDeleteConfirmationModal = () => {setDeleteConfirmationModalStatus(false);}
     const openDeleteConfirmationModal = () => {setDeleteConfirmationModalStatus(true);}
 
-    const handleCommentsModalClose = () => {
-        setCommentsModal(false);
-    }
+    const handleCommentsModalClose = () => {setCommentsModal(false);}
 
-    const closeEditModal = ()=> {
-        setEditModal(false);
-      }
+    const closeEditModal = ()=> {setEditModal(false);}
 
       function OpenEditModal(){
         setEditModal(true);

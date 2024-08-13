@@ -22,11 +22,6 @@ const style = {
     alignItems: 'center'
 };
 
-const buttonStyle = {
-    marginTop: '16px',
-    width: 'auto'
-};
-
 export default function ViewCommentsModal({ openComments, handleCommentsModal, comments }) {
     return (
         <div>

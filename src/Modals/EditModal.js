@@ -111,6 +111,7 @@ export default function EditModal({ open, handleClose, submitDataToMenu, data })
         else if (nameError == VALID && logicalTime == VALID) {//both inputs are valid and there are no errors
             submitDataToMenu(tempData, setErrors, handleClose);
         }
+        closeConfirmationModal();
     }
 
     return (

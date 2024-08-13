@@ -6,7 +6,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import ConfirmationModal from '../Modals/ConfirmationModal';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -59,11 +58,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Menu({ query, updateSeachQuery, addReport }) {
     const [successModalStatus, setSuccessModalStatus] = React.useState(false);
     const [successModalMessage, setSuccessModalMessage] = React.useState('');
+    const [closeWindowModalStatus, setCloseWindowModalStatus] = React.useState(false);
+    const [addModalStatus, setAddModalStatus] = React.useState(false)
 
     const closeSuccessModal = () => { setSuccessModalStatus(false); }
 
-    const [closeWindowModalStatus, setCloseWindowModalStatus] = React.useState(false);
-    const [addModalStatus, setAddModalStatus] = React.useState(false)
     const handleSearchChange = (event) => {
         const newSearchTerm = event.target.value;
         updateSeachQuery(newSearchTerm);
