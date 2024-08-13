@@ -1,0 +1,91 @@
+.container {
+    display: inline-block;
+    border-radius: 15px;
+    box-shadow: 3px 3px 15px rgb(0, 0, 0);
+    padding: 3px;
+    box-sizing: border-box;
+    max-width: 15%;
+    min-width: 200px;
+    height: max-content;
+    width: fit-content;
+    margin: 25px;
+    overflow: visible; /* Ensure that overflow is visible so the tooltip can extend outside */
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.name-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Tooltip styling */
+.tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    white-space: nowrap; /* Allow text to wrap */
+    width: auto;
+    max-width: fit-content; /* Set a maximum width to control wrapping */
+    word-wrap: break-word; /* Wrap long words onto the next line if necessary */
+    word-break: break-all; /* Ensure the text wraps appropriately when reaching the edge */
+    
+    /* Position the tooltip to the right of the name */
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 105%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Show the tooltip on hover */
+.name-container:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.date{
+    text-align: center;
+}
+
+.start-hour{
+    text-align: center;
+}
+
+.end-hour{
+    text-align: center;
+}
+
+.comments-container{
+    text-align: center;
+}
+
+
+
+/* Adjust tooltip position when it's near the edge of the screen */
+@media screen and (max-width: 600px) {
+    .tooltiptext {
+        left: auto; /* Override the left positioning */
+        right: 105%; /* Position to the left of the text */
+    }
+}
