@@ -251,8 +251,6 @@ function App() {
             <p className="no-reports">No Reports found</p>
           </div>}
         </div>
-        <div className='filter-container'>
-        </div>
       </div>
       <footer class="footer">
         {Array.isArray(data) && dispayData.length > 0 && <Pagination count={pageCount} onChange={handlePageChange} size="large" sx={paginationStyle} />}
